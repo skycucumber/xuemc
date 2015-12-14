@@ -1,0 +1,418 @@
+-- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: bd
+-- ------------------------------------------------------
+-- Server version	5.5.40-0ubuntu0.14.04.1
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO,POSTGRESQL' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table "account"
+--
+
+DROP TABLE IF EXISTS "account";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "account" (
+  "id" int(11) NOT NULL,
+  "username" varchar(50) DEFAULT NULL,
+  "password" varchar(255) DEFAULT NULL,
+  "name" varchar(20) DEFAULT NULL,
+  "telephone" varchar(50) DEFAULT NULL,
+  "role" int(11) DEFAULT '0' COMMENT '0:normal, 1: admin',
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "account"
+--
+
+LOCK TABLES "account" WRITE;
+/*!40000 ALTER TABLE "account" DISABLE KEYS */;
+/*!40000 ALTER TABLE "account" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "agespan"
+--
+
+DROP TABLE IF EXISTS "agespan";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "agespan" (
+  "id" int(11) NOT NULL,
+  "name" varchar(50) DEFAULT NULL,
+  "fromage" int(11) DEFAULT NULL,
+  "toage" int(11) DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "agespan"
+--
+
+LOCK TABLES "agespan" WRITE;
+/*!40000 ALTER TABLE "agespan" DISABLE KEYS */;
+INSERT INTO "agespan" VALUES (1,'小学生',6,13),(2,'幼儿',3,10),(3,'成人',18,120),(4,'小学生及中学生',6,18);
+/*!40000 ALTER TABLE "agespan" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "area"
+--
+
+DROP TABLE IF EXISTS "area";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "area" (
+  "id" int(11) NOT NULL,
+  "name" varchar(50) DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "area"
+--
+
+LOCK TABLES "area" WRITE;
+/*!40000 ALTER TABLE "area" DISABLE KEYS */;
+INSERT INTO "area" VALUES (1,'浦东新区2'),(2,'徐汇区'),(3,'黄浦区'),(4,'卢湾区'),(5,'静安区'),(6,'长宁区'),(7,'闵行区'),(8,'杨浦区'),(9,'普陀区'),(10,'虹口区'),(11,'宝山区'),(12,'闸北区'),(13,'松江区'),(14,'嘉定区'),(15,'青浦区'),(16,'奉贤区'),(17,'金山区'),(18,'崇明县');
+/*!40000 ALTER TABLE "area" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "bulletin"
+--
+
+DROP TABLE IF EXISTS "bulletin";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "bulletin" (
+  "id" int(11) NOT NULL,
+  "dt" datetime DEFAULT NULL,
+  "title" varchar(100) DEFAULT NULL,
+  "content" varchar(5000) DEFAULT NULL,
+  "valid" int(11) DEFAULT '1' COMMENT '0: unvalid, 1:valid',
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "bulletin"
+--
+
+LOCK TABLES "bulletin" WRITE;
+/*!40000 ALTER TABLE "bulletin" DISABLE KEYS */;
+INSERT INTO "bulletin" VALUES (1,'2015-06-24 21:31:28','2015年全区优秀学生、“三好学生”、优秀学生干部、先进班集体名单公示的通知','各市教育局，各高等学校，中等职业学校：',1),(2,'2015-06-25 21:31:28','国土资源部拟聘请的第四届国家特邀国土资源监察专员公示通知','v234',1),(3,'2015-06-25 21:31:28','关于征求对《国土资源“十三五”科学和技术发展规划》（征求意见稿）意见的函','dfg',1),(4,'2015-06-25 21:31:28','“拍客日记”国土资源公益微视频网络征集活动启事','234',1),(5,'2015-06-25 21:31:28','国土资源部办公厅关于推荐“十二五”科技与国际合作先进集体、先进个人的通知','fg',1),(6,'2015-06-25 21:31:28','关于2015年公开选择矿业权评估机构的函','sdf',1),(7,'2015-06-25 21:31:28','“像保护大熊猫一样保护耕地”主题散文大赛征稿启事','234',1),(8,'2015-06-25 21:31:28','中国矿业权评估师协会关于公开招聘工作人员的启事','sdfsd',1),(9,'2015-06-25 21:31:28','	2015年度国土资源科学技术奖申报项目公示','sdfsdf',1),(10,'2015-06-25 21:31:28','(NULL)国土资源部关于发布《水文地质调查规范（1：50000）》等4项行业标准的公告','sdfg',1),(11,'2015-06-25 21:31:28','2015年度国土资源标准制修订工作计划公示','dfgfdg',1),(12,'2015-06-25 21:31:28','国土资源部关于取消国家地质公园规划审批等事项的公告','dfgdfg',1),(13,'2015-06-25 21:31:28','国土资源部关于发布《重力调查技术规范（1：50000）》等4项行业标准的公告','dfg',1),(14,'2015-06-25 21:31:28','2015年度航空物探调查项目飞行任务承担人竞争性谈判优选结果公告','dfg',1),(15,'2015-06-25 21:31:28','人力资源社会保障部 国土资源部关于评选全国国土资源管理系统先进集体和先进工作者的','dfg',1),(16,'2015-06-25 21:31:28','《晋城蓝焰煤业股份有限公司凤凰山矿矿山地质环境保护与恢复治理方案》等18个“方案”通过审查的公告','dfg',1),(17,'2015-06-25 21:31:28','	2014年度国土资源政务信息网上公开执行情况检查结果','hg',1),(18,'2015-06-25 21:31:28','国土资源部办公厅关于开展第25个全国“土地日”主题宣传周活动的通知','fdg',1),(19,'2015-06-25 21:31:28','中华人民共和国国土资源部令','dgf',1),(20,'2015-06-25 21:31:28','2015年1季度国土资源部评审备案矿产资源储量成果信息情况','sdf',1),(21,'2015-06-25 21:31:28','国土资源部办公厅关于实行规范性文件 “三统一”制度的通知','sdf',1);
+/*!40000 ALTER TABLE "bulletin" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "feature"
+--
+
+DROP TABLE IF EXISTS "feature";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "feature" (
+  "id" int(11) NOT NULL,
+  "name" varchar(50) DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "feature"
+--
+
+LOCK TABLES "feature" WRITE;
+/*!40000 ALTER TABLE "feature" DISABLE KEYS */;
+INSERT INTO "feature" VALUES (0,''),(1,'英语'),(2,'国学');
+/*!40000 ALTER TABLE "feature" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "feetype"
+--
+
+DROP TABLE IF EXISTS "feetype";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "feetype" (
+  "id" int(11) NOT NULL,
+  "name" varchar(200) DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "feetype"
+--
+
+LOCK TABLES "feetype" WRITE;
+/*!40000 ALTER TABLE "feetype" DISABLE KEYS */;
+INSERT INTO "feetype" VALUES (1,'按时间收费'),(2,'按等级收费');
+/*!40000 ALTER TABLE "feetype" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "institution"
+--
+
+DROP TABLE IF EXISTS "institution";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "institution" (
+  "id" int(11) NOT NULL,
+  "name" varchar(100) DEFAULT NULL,
+  "area_id" int(11) DEFAULT NULL,
+  "agespan_id" int(11) DEFAULT NULL,
+  "address" varchar(100) DEFAULT NULL,
+  "location" varchar(100) DEFAULT NULL,
+  "website" varchar(100) DEFAULT NULL,
+  "telephone" varchar(100) DEFAULT NULL,
+  "feedesc" varchar(100) DEFAULT NULL,
+  "timeopen" varchar(20) DEFAULT NULL,
+  "timeclose" varchar(20) DEFAULT NULL,
+  "feetype_id" int(11) DEFAULT NULL,
+  "longitude" int(11) DEFAULT NULL,
+  "latitude" int(11) DEFAULT NULL,
+  "featuredesc" varchar(200) DEFAULT NULL,
+  "feature_id" int(11) DEFAULT NULL,
+  PRIMARY KEY ("id"),
+  KEY "feetype_id" ("feetype_id"),
+  KEY "area_id" ("area_id"),
+  KEY "agespan_id" ("agespan_id"),
+  KEY "institution_ibfk_5" ("feature_id"),
+  CONSTRAINT "institution_ibfk_2" FOREIGN KEY ("feetype_id") REFERENCES "feetype" ("id") ON UPDATE CASCADE,
+  CONSTRAINT "institution_ibfk_3" FOREIGN KEY ("area_id") REFERENCES "area" ("id") ON UPDATE CASCADE,
+  CONSTRAINT "institution_ibfk_4" FOREIGN KEY ("agespan_id") REFERENCES "agespan" ("id") ON UPDATE CASCADE,
+  CONSTRAINT "institution_ibfk_5" FOREIGN KEY ("feature_id") REFERENCES "feature" ("id") ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "institution"
+--
+
+LOCK TABLES "institution" WRITE;
+/*!40000 ALTER TABLE "institution" DISABLE KEYS */;
+INSERT INTO "institution" VALUES (1,'韦博国际英语',2,3,'衡山路922号建汇大厦33层','徐家汇中心','http://www.webi.com.cn','400-720-9090','每小时2元','08:00:00','22:00:00',1,NULL,NULL,'（实用英语、职场英语、雅思、托福、SAT等等）',0),(2,'东书房',5,1,'张杨路500号华润时代广场6楼（靠近浦东南路，八佰伴对面）','华润中心','http://www.dongshufang.cn/','400-870-2227','1、按级别收费，每个级别6个月；2、按时间收费，不限级别；','10:00:00','21:30:00',2,NULL,NULL,'（古筝、围棋、书法、国画）',0);
+/*!40000 ALTER TABLE "institution" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "institution_feature"
+--
+
+DROP TABLE IF EXISTS "institution_feature";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "institution_feature" (
+  "institution_id" int(11) NOT NULL,
+  "feature_id" int(11) NOT NULL,
+  PRIMARY KEY ("institution_id","feature_id"),
+  KEY "feature_id" ("feature_id"),
+  CONSTRAINT "institution_feature_ibfk_1" FOREIGN KEY ("institution_id") REFERENCES "institution" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT "institution_feature_ibfk_2" FOREIGN KEY ("feature_id") REFERENCES "feature" ("id") ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "institution_feature"
+--
+
+LOCK TABLES "institution_feature" WRITE;
+/*!40000 ALTER TABLE "institution_feature" DISABLE KEYS */;
+INSERT INTO "institution_feature" VALUES (1,1),(2,2);
+/*!40000 ALTER TABLE "institution_feature" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "institutionimage"
+--
+
+DROP TABLE IF EXISTS "institutionimage";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "institutionimage" (
+  "id" int(11) NOT NULL,
+  "institution_id" int(11) DEFAULT NULL,
+  "file" varchar(500) DEFAULT NULL,
+  PRIMARY KEY ("id"),
+  KEY "institutionimage_ibfk_1" ("institution_id"),
+  CONSTRAINT "institutionimage_ibfk_1" FOREIGN KEY ("institution_id") REFERENCES "institution" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "institutionimage"
+--
+
+LOCK TABLES "institutionimage" WRITE;
+/*!40000 ALTER TABLE "institutionimage" DISABLE KEYS */;
+/*!40000 ALTER TABLE "institutionimage" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "school"
+--
+
+DROP TABLE IF EXISTS "school";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "school" (
+  "id" int(11) NOT NULL,
+  "name" varchar(100) DEFAULT NULL,
+  "area_id" int(11) DEFAULT NULL,
+  "teachdesc" varchar(2000) DEFAULT NULL,
+  "address" varchar(100) DEFAULT NULL,
+  "schooltype_id" int(11) DEFAULT NULL,
+  "website" varchar(100) DEFAULT NULL,
+  "leisure" varchar(1000) DEFAULT NULL,
+  "threashold" varchar(1000) DEFAULT NULL,
+  "partner" varchar(100) DEFAULT NULL,
+  "artsource" varchar(1000) DEFAULT NULL,
+  "feedesc" varchar(100) DEFAULT NULL,
+  "distinguish" varchar(1000) DEFAULT NULL,
+  "longitude" int(11) DEFAULT NULL,
+  "latitude" int(11) DEFAULT NULL,
+  "feature_id" int(11) DEFAULT NULL,
+  PRIMARY KEY ("id"),
+  KEY "area_id" ("area_id"),
+  KEY "school_ibfk_1" ("schooltype_id"),
+  KEY "feature_id" ("feature_id"),
+  CONSTRAINT "school_ibfk_1" FOREIGN KEY ("schooltype_id") REFERENCES "schooltype" ("id") ON UPDATE CASCADE,
+  CONSTRAINT "school_ibfk_2" FOREIGN KEY ("area_id") REFERENCES "area" ("id") ON UPDATE CASCADE,
+  CONSTRAINT "school_ibfk_3" FOREIGN KEY ("feature_id") REFERENCES "feature" ("id") ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "school"
+--
+
+LOCK TABLES "school" WRITE;
+/*!40000 ALTER TABLE "school" DISABLE KEYS */;
+INSERT INTO "school" VALUES (1,'上海市市一中学',7,'校长姓名：杨泰山。教职工总数：133。专职教师人数：45。中高级职称比例：75.6%。教师学历达标比例：100%。师生比：1:11。一线教师数为112人。','上海市静安区余姚路139号',3,'http://www.yizhong.edu.sh.cn/','爵士乐队、心理健康指导','招生简章','静安区第二中心小学、静安小学（仅供参考，新一年以学校发布为准）','12人（书法2人，乐器3人，声乐2人，国画、素描、创作2人，舞蹈、主持、戏剧3人）','公费','“婷婷服务”、心理健康教育、艺术教育、信息技术教育是学校品牌和特色教育项目，它们通过基础型课程、拓展型课程、学生社团等途径得到发展和完',22,22,0),(3,'上海理工大学2',4,'上海理工大学是一所以工学为主，理学、管理学、经济学、文学等多学科交融发展的上海市属重点大学，已有百余...','上海市松江区文翔路1900号',5,'http:/sdfdsf.com','sdfalksjdflsjdf;adf等多学科交融发展的上海市属重点大学，已有百余...','sdfsdfsdf\r\n\r\nsdfdf','sdf','sdfasfsdf','dsfsdfsdf','sdf\r\n上海理工大学是一所以工学为主，理学、管理学、经济学、文学等多学科交融发展的上海.dsf\r\n\r\nsdfdf',111,3333,1);
+/*!40000 ALTER TABLE "school" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "school_feature"
+--
+
+DROP TABLE IF EXISTS "school_feature";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "school_feature" (
+  "school_id" int(11) NOT NULL,
+  "feature_id" int(11) NOT NULL,
+  PRIMARY KEY ("school_id","feature_id"),
+  KEY "feature_id" ("feature_id"),
+  CONSTRAINT "school_feature_ibfk_1" FOREIGN KEY ("school_id") REFERENCES "school" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT "school_feature_ibfk_2" FOREIGN KEY ("feature_id") REFERENCES "feature" ("id") ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "school_feature"
+--
+
+LOCK TABLES "school_feature" WRITE;
+/*!40000 ALTER TABLE "school_feature" DISABLE KEYS */;
+/*!40000 ALTER TABLE "school_feature" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "schoolimage"
+--
+
+DROP TABLE IF EXISTS "schoolimage";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "schoolimage" (
+  "id" int(11) NOT NULL,
+  "school_id" int(11) DEFAULT NULL,
+  "file" varchar(500) DEFAULT NULL,
+  PRIMARY KEY ("id"),
+  KEY "schoolimage_ibfk_1" ("school_id"),
+  CONSTRAINT "schoolimage_ibfk_1" FOREIGN KEY ("school_id") REFERENCES "school" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "schoolimage"
+--
+
+LOCK TABLES "schoolimage" WRITE;
+/*!40000 ALTER TABLE "schoolimage" DISABLE KEYS */;
+INSERT INTO "schoolimage" VALUES (24,1,'30f33802-1d84-11e5-80fc-00163e0023bf.jpg');
+/*!40000 ALTER TABLE "schoolimage" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "schooltype"
+--
+
+DROP TABLE IF EXISTS "schooltype";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "schooltype" (
+  "id" int(11) NOT NULL,
+  "name" varchar(50) DEFAULT NULL,
+  PRIMARY KEY ("id")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "schooltype"
+--
+
+LOCK TABLES "schooltype" WRITE;
+/*!40000 ALTER TABLE "schooltype" DISABLE KEYS */;
+INSERT INTO "schooltype" VALUES (1,'幼儿园'),(2,'小学'),(3,'初中'),(4,'高中'),(5,'中等职业学校'),(6,'大专'),(7,'大学');
+/*!40000 ALTER TABLE "schooltype" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "terminal"
+--
+
+DROP TABLE IF EXISTS "terminal";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "terminal" (
+  "id" int(11) NOT NULL,
+  "account_id" int(11) DEFAULT NULL,
+  "type" int(11) DEFAULT NULL COMMENT '1:ios, 2:android',
+  "code" varchar(255) DEFAULT NULL,
+  PRIMARY KEY ("id"),
+  KEY "account_id" ("account_id"),
+  CONSTRAINT "terminal_ibfk_1" FOREIGN KEY ("account_id") REFERENCES "account" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "terminal"
+--
+
+LOCK TABLES "terminal" WRITE;
+/*!40000 ALTER TABLE "terminal" DISABLE KEYS */;
+/*!40000 ALTER TABLE "terminal" ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-06-29 20:55:17
